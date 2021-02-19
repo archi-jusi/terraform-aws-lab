@@ -7,9 +7,9 @@ resource "aws_instance" "webserver" {
   #ami                    = data.aws_ami.amazon-ami-linux2-mostrecent.id
   ami                    = var.ami_id
   instance_type          = var.instance_type
-  vpc_security_group_ids = [aws_security_group.securitygroupweb.id]
+  vpc_security_group_ids = var.securitygroup 
   key_name               = var.keyname
-  tags = local.tags_instance
+  tags                   = var.tagsmap
   lifecycle { create_before_destroy = true }
   user_data = var.userdata
 }

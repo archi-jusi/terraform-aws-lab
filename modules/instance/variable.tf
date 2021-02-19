@@ -66,47 +66,17 @@ variable "userdata" {
   description = "bootstrapping for ec2 - null by default"
   default = null
 }
+variable "tagsmap" {
+  description = "name for the instance" 
+  type = map
+  default = {
+     env = "Test",
+     owner = "jusi",
+     managed = "terraform"
+   }
+}
 
-# Variable for security groups 
-#############################
-variable "securitygroupname" {
+variable "securitygroup" {
   description = "Name for the security group for ec2 instance"
-  default = "testsecurtygroup"
-}
-
-variable "portopen" {
-  description = "port to open"
-  type        = number
-  default     = 22
-}
-
-
-
-variable "allportopen" {
-  description = "port to open"
-  type        = number
-  default     = 0
-}
-
-variable "in_cidr_block" {
-  description = "CIDR block the inbound ACL"
-  default     = ["5.170.225.0/24"]
-}
-
-variable "out_cidr_block" {
-  description = "CIDR block the outbound ACL"
-  type        = list(any)
-  default     = ["0.0.0.0/0"]
-}
-
-locals {
-  owner = "jusi"
-  managed = "terraformjusi"
-  environment = "test"
-  tags_instance = {
-    owner = local.owner
-    managed = local.managed
-    environment = local.environment
-  }
-  amilinux2 = data.aws_ami.amazon-ami-linux2-mostrecent
+  default = null
 }

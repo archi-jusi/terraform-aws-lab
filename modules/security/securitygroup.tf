@@ -1,7 +1,7 @@
 resource "aws_security_group" "securitygroupweb" {
 
-  name        = var.securitygroupname
-  description = "Allow only http access"
+  #name        = var.securitygroupname
+  
   ingress {
     from_port   = var.portopen
     to_port     = var.portopen
@@ -14,6 +14,6 @@ resource "aws_security_group" "securitygroupweb" {
     protocol    = "-1"
     cidr_blocks = var.out_cidr_block
   }
-  revoke_rules_on_delete = true
-  lifecycle { create_before_destroy = true }
+  #revoke_rules_on_delete = true
+  #lifecycle { create_before_destroy = true }
 }
