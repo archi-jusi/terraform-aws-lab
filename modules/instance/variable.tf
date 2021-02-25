@@ -66,6 +66,14 @@ variable "userdata" {
   description = "bootstrapping for ec2 - null by default"
   default = null
 }
+
+variable "name_ec2" {
+  description = "Name for the Ec2 instance"
+  default = null
+}
+
+
+
 variable "tagsmap" {
   description = "name for the instance" 
   type = map
@@ -73,6 +81,7 @@ variable "tagsmap" {
      env = "Test",
      owner = "jusi",
      managed = "terraform"
+     Name = null
    }
 }
 

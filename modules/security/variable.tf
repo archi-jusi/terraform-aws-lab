@@ -4,8 +4,7 @@
 #############################
 variable "securitygroupname" {
   description = "Name for the security group for ec2 instance"
-  type = string
-  default = "testsecurtygroup"
+  default = null
 }
 
 variable "portopen" {

@@ -7,13 +7,20 @@ variable "ami" {
 
 variable "tagsmaptest" {
   description = "name for the instance"
-  type = map
+  type        = map(any)
   default = {
-     env = "Test",
-     owner = "infra",
-     managed = "terraform",
-     team = "devops"
-   }
+    Env       = "Test",
+    Owner     = "infra",
+    Team      = "devops"
+    Name      = null
+    Terraform = true
+  }
+}
+
+variable "securityname" {
+  description = "name for security group - has to be unique"
+  type        = string
+  default     = "httponly"
 }
 
 locals {
